@@ -7,21 +7,21 @@ public class Goods extends AbstractGoods {
 
     @Override
     void changeSellInByDay() {
-        if (super.getSellIn() > 0) {
+        if (super.getSellIn() > MINIMUM_SELLIN) {
             super.setSellIn(super.getSellIn() - 1);
         }
     }
 
     @Override
     void changeQualityByDay() {
-        if (super.getSellIn() == 0) {
+        if (super.getSellIn() == MINIMUM_SELLIN) {
             super.setQuality(super.getQuality() - 2);
         } else {
             super.setQuality(super.getQuality() - 1);
         }
 
-        if (super.getQuality() < 0) {
-            super.setQuality(0);
+        if (super.getQuality() < MINIMUM_QUALITY) {
+            super.setQuality(MINIMUM_QUALITY);
         }
     }
 
