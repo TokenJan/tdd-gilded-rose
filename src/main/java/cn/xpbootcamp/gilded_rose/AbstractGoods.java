@@ -16,9 +16,23 @@ public abstract class AbstractGoods {
     private Integer quality;
 
 
-    public void dayPasses() {
+    void dayPasses() {
         changeSellInByDay();
         changeQualityByDay();
+    }
+
+    void decreaseQuality(int quality) {
+        this.quality -= quality;
+        if (this.quality < MINIMUM_QUALITY) {
+            this.quality = MINIMUM_QUALITY;
+        }
+    }
+
+    void increaseQuality(int quality) {
+        this.quality += quality;
+        if (this.quality > MAXIMUM_QUALITY) {
+            this.quality = MAXIMUM_QUALITY;
+        }
     }
 
     abstract void changeSellInByDay();

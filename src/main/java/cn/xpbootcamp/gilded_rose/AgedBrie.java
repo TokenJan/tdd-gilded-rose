@@ -10,10 +10,7 @@ public class AgedBrie extends AbstractGoods {
 
     @Override
     void changeQualityByDay() {
-        super.setQuality(super.getQuality() + 1);
-        if (super.getQuality() > MAXIMUM_QUALITY) {
-            super.setQuality(MAXIMUM_QUALITY);
-        }
+        super.increaseQuality(1);
     }
 
     public AgedBrie(int quality) {
