@@ -28,5 +28,9 @@ public class Goods {
         } else {
             this.quality -= 1;
         }
+
+        if (quality < 0) {
+            this.quality = 0;
+        }
     }
 }

@@ -27,4 +27,16 @@ class GoodsTest extends Specification {
         good.getSellIn() == 0
         good.getQuality() == 2
     }
+
+    void "given quality equals 0 and sellIn equals 0 when day passes then quality equals 0 and sellIn equals 0"() {
+        given:
+        def good = new Goods(0, 0)
+
+        when:
+        good.dayPasses()
+
+        then:
+        good.getSellIn() == 0
+        good.getQuality() == 0
+    }
 }
