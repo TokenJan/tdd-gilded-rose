@@ -38,7 +38,6 @@ public abstract class AbstractGoods {
         }
     }
 
-
     abstract void changeSellInByDay();
 
     abstract void changeQualityByDay();

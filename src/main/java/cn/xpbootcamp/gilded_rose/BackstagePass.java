@@ -7,7 +7,6 @@ public class BackstagePass extends AbstractGoods {
 
     private static final int TEN_DAYS = 10;
     private static final int FIVE_DAYS = 5;
-    private static final int ZERO_DAY = 0;
 
     @Override
     void changeSellInByDay() {
@@ -16,7 +15,7 @@ public class BackstagePass extends AbstractGoods {
 
     @Override
     void changeQualityByDay() {
-        if (super.getSellIn() == ZERO_DAY) {
+        if (super.getSellIn() == MINIMUM_SELLIN) {
             super.setQuality(0);
         } else if (super.getSellIn() <= FIVE_DAYS) {
             super.changeQuality(3);
