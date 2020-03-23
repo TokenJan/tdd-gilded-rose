@@ -16,7 +16,7 @@ public abstract class AbstractGoods {
     private Integer quality;
 
 
-    void dayPasses() {
+    final void dayPasses() {
         changeQualityByDay();
         changeSellInByDay();
     }
