@@ -1,36 +1,31 @@
 package cn.xpbootcamp.gilded_rose;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-public class Goods {
+public class Goods extends AbstractGoods {
 
-    private Integer sellIn;
-
-    private Integer quality;
-
-    void dayPasses() {
-        changeSellInByDay();
-        changeQualityByDay();
-    }
-
-    private void changeSellInByDay() {
-        if (sellIn > 0) {
-            this.sellIn -= 1;
+    @Override
+    void changeSellInByDay() {
+        if (super.getSellIn() > 0) {
+            super.setSellIn(super.getSellIn() - 1);
         }
     }
 
-    private void changeQualityByDay() {
-        if (this.sellIn == 0) {
-            this.quality -= 2;
+    @Override
+    void changeQualityByDay() {
+        if (super.getSellIn() == 0) {
+            super.setQuality(super.getQuality() - 2);
         } else {
-            this.quality -= 1;
+            super.setQuality(super.getQuality() - 1);
         }
 
-        if (quality < 0) {
-            this.quality = 0;
+        if (super.getQuality() < 0) {
+            super.setQuality(0);
         }
+    }
+
+    public Goods(int sellIn, int quality) {
+        super(sellIn, quality);
     }
 }
