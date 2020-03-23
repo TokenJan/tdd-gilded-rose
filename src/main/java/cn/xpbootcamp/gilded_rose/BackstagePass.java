@@ -5,6 +5,8 @@ import lombok.Getter;
 @Getter
 public class BackstagePass extends AbstractGoods {
 
+    private static final int TEN_DAYS = 10;
+
     @Override
     void changeSellInByDay() {
         super.decreaseSellIn();
@@ -12,7 +14,11 @@ public class BackstagePass extends AbstractGoods {
 
     @Override
     void changeQualityByDay() {
-        super.increaseQuality(1);
+        if (super.getSellIn() < TEN_DAYS) {
+            super.increaseQuality(2);
+        } else {
+            super.increaseQuality(1);
+        }
     }
 
     public BackstagePass(int sellIn, int quality) {
