@@ -35,6 +35,13 @@ public abstract class AbstractGoods {
         }
     }
 
+    void decreaseSellIn() {
+        this.sellIn -= 1;
+        if (this.sellIn < MINIMUM_SELLIN) {
+            this.sellIn = MINIMUM_SELLIN;
+        }
+    }
+
     abstract void changeSellInByDay();
 
     abstract void changeQualityByDay();

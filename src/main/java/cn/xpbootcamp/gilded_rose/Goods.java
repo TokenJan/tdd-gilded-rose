@@ -7,9 +7,7 @@ public class Goods extends AbstractGoods {
 
     @Override
     void changeSellInByDay() {
-        if (super.getSellIn() > MINIMUM_SELLIN) {
-            super.setSellIn(super.getSellIn() - 1);
-        }
+        super.decreaseSellIn();
     }
 
     @Override
