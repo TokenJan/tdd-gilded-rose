@@ -12,7 +12,21 @@ public class Goods {
     private Integer quality;
 
     void dayPasses() {
-        this.sellIn -= 1;
-        this.quality -= 1;
+        changeSellInByDay();
+        changeQualityByDay();
+    }
+
+    private void changeSellInByDay() {
+        if (sellIn > 0) {
+            this.sellIn -= 1;
+        }
+    }
+
+    private void changeQualityByDay() {
+        if (this.sellIn == 0) {
+            this.quality -= 2;
+        } else {
+            this.quality -= 1;
+        }
     }
 }
