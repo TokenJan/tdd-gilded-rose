@@ -39,4 +39,16 @@ class BackstagePassTest extends Specification {
         backstagePass.getQuality() == 7
         backstagePass.getSellIn() == 9
     }
+
+    void "given Backstage Pass quality equals 5 sellin equals 5 when day passes then quality equals 8 and sellin equals 4"() {
+        given:
+        def backstagePass = new BackstagePass(5, 5)
+
+        when:
+        backstagePass.dayPasses()
+
+        then:
+        backstagePass.getQuality() == 8
+        backstagePass.getSellIn() == 4
+    }
 }
