@@ -10,7 +10,7 @@ public class AgedBrie extends AbstractGoods {
 
     @Override
     void changeQualityByDay() {
-        super.increaseQuality(1);
+        super.changeQuality(1);
     }
 
     public AgedBrie(int quality) {

@@ -18,12 +18,12 @@ public class BackstagePass extends AbstractGoods {
     void changeQualityByDay() {
         if (super.getSellIn() == ZERO_DAY) {
             super.setQuality(0);
-        } else if (super.getSellIn() < FIVE_DAYS) {
-            super.increaseQuality(3);
-        } else if (super.getSellIn() < TEN_DAYS) {
-            super.increaseQuality(2);
+        } else if (super.getSellIn() <= FIVE_DAYS) {
+            super.changeQuality(3);
+        } else if (super.getSellIn() <= TEN_DAYS) {
+            super.changeQuality(2);
         } else {
-            super.increaseQuality(1);
+            super.changeQuality(1);
         }
     }
 

@@ -17,19 +17,15 @@ public abstract class AbstractGoods {
 
 
     void dayPasses() {
-        changeSellInByDay();
         changeQualityByDay();
+        changeSellInByDay();
     }
 
-    void decreaseQuality(int quality) {
-        this.quality -= quality;
+    void changeQuality(int quality) {
+        this.quality += quality;
         if (this.quality < MINIMUM_QUALITY) {
             this.quality = MINIMUM_QUALITY;
         }
-    }
-
-    void increaseQuality(int quality) {
-        this.quality += quality;
         if (this.quality > MAXIMUM_QUALITY) {
             this.quality = MAXIMUM_QUALITY;
         }
@@ -41,6 +37,7 @@ public abstract class AbstractGoods {
             this.sellIn = MINIMUM_SELLIN;
         }
     }
+
 
     abstract void changeSellInByDay();
 

@@ -13,9 +13,9 @@ public class Goods extends AbstractGoods {
     @Override
     void changeQualityByDay() {
         if (super.getSellIn() == MINIMUM_SELLIN) {
-            super.decreaseQuality(2);
+            super.changeQuality(-2);
         } else {
-            super.decreaseQuality(1);
+            super.changeQuality(-1);
         }
     }
 
