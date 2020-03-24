@@ -73,6 +73,6 @@ class BackstagePassTest extends Specification {
 
         then:
         backstagePass.getQuality() == 0
-        backstagePass.getSellIn() == 0
+        backstagePass.getSellIn() == -1
     }
 }

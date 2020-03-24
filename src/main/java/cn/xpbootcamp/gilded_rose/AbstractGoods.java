@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public abstract class AbstractGoods {
 
-    public static final int MINIMUM_SELLIN = 0;
+    public static final int ZERO_SELLIN_DAY = 0;
     public static final int MINIMUM_QUALITY = 0;
     public static final int MAXIMUM_QUALITY = 50;
     private Integer sellIn;
@@ -33,9 +33,6 @@ public abstract class AbstractGoods {
 
     void decreaseSellIn() {
         this.sellIn -= 1;
-        if (this.sellIn < MINIMUM_SELLIN) {
-            this.sellIn = MINIMUM_SELLIN;
-        }
     }
 
     abstract void changeSellInByDay();

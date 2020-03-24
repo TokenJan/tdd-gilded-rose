@@ -24,7 +24,7 @@ class GoodsTest extends Specification {
         good.dayPasses()
 
         then:
-        good.getSellIn() == 0
+        good.getSellIn() == -1
         good.getQuality() == 2
     }
 
@@ -36,7 +36,7 @@ class GoodsTest extends Specification {
         good.dayPasses()
 
         then:
-        good.getSellIn() == 0
+        good.getSellIn() == -1
         good.getQuality() == 0
     }
 }

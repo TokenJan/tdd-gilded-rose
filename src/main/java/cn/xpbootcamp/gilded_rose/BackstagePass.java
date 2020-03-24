@@ -15,7 +15,7 @@ public class BackstagePass extends AbstractGoods {
 
     @Override
     void changeQualityByDay() {
-        if (super.getSellIn() == MINIMUM_SELLIN) {
+        if (super.getSellIn() <= ZERO_SELLIN_DAY) {
             super.setQuality(0);
         } else if (super.getSellIn() <= FIVE_DAYS) {
             super.changeQuality(3);
