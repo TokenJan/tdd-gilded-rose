@@ -6,14 +6,16 @@ import lombok.Getter;
 public class AgedBrie extends AbstractGoods {
 
     @Override
-    void changeSellInByDay() { }
+    void changeSellInByDay() {
+        super.decreaseSellIn();
+    }
 
     @Override
     void changeQualityByDay() {
         super.changeQuality(1);
     }
 
-    public AgedBrie(int quality) {
-        super(null, quality);
+    public AgedBrie(int sellIn, int quality) {
+        super(sellIn, quality);
     }
 }
