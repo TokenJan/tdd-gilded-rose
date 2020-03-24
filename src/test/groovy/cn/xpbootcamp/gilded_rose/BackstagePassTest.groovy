@@ -28,51 +28,48 @@ class BackstagePassTest extends Specification {
         backstagePass.getSellIn() == 14
     }
 
-    void "given Backstage Pass quality equals 5 sellin equals 10 when day passes then quality equals 7 and sellin equals 9"() {
-        given:
-        def backstagePass = new BackstagePass(10, 5)
-
-        when:
+    void "given Backstage Pass sellin between 6 and 10 when day passes then quality increase 2"(int sellIn, int quality, int newSellIn, int newQuality) {
+        expect:
+        def backstagePass = new BackstagePass(sellIn, quality)
         backstagePass.dayPasses()
+        newSellIn == backstagePass.getSellIn()
+        newQuality == backstagePass.getQuality()
 
-        then:
-        backstagePass.getQuality() == 7
-        backstagePass.getSellIn() == 9
+        where:
+        sellIn | quality || newSellIn || newQuality
+        6      | 5       || 5         || 7
+        7      | 5       || 6         || 7
+        8      | 5       || 7         || 7
+        9      | 5       || 8         || 7
+        10     | 5       || 9         || 7
     }
 
-    void "given Backstage Pass quality equals 5 sellin equals 5 when day passes then quality equals 8 and sellin equals 4"() {
-        given:
-        def backstagePass = new BackstagePass(5, 5)
-
-        when:
+    void "given Backstage Pass sellin between 1 and 5 when day passes then quality increase 3"(int sellIn, int quality, int newSellIn, int newQuality) {
+        expect:
+        def backstagePass = new BackstagePass(sellIn, quality)
         backstagePass.dayPasses()
+        newSellIn == backstagePass.getSellIn()
+        newQuality == backstagePass.getQuality()
 
-        then:
-        backstagePass.getQuality() == 8
-        backstagePass.getSellIn() == 4
+        where:
+        sellIn | quality || newSellIn || newQuality
+        1      | 5       || 0         || 8
+        2      | 5       || 1         || 8
+        3      | 5       || 2         || 8
+        4      | 5       || 3         || 8
+        5      | 5       || 4         || 8
     }
 
-    void "given Backstage Pass quality equals 5 sellin equals 1 when day passes then quality equals 8 and sellin equals 0"() {
-        given:
-        def backstagePass = new BackstagePass(1, 5)
+    void "given Backstage Pass quality equals 5 sellin equals 0 when day passes then quality equals 0 and sellin equals 0"(int sellIn, int quality, int newSellIn, int newQuality) {
 
-        when:
+        expect:
+        def backstagePass = new BackstagePass(sellIn, quality)
         backstagePass.dayPasses()
+        newSellIn == backstagePass.getSellIn()
+        newQuality == backstagePass.getQuality()
 
-        then:
-        backstagePass.getQuality() == 8
-        backstagePass.getSellIn() == 0
-    }
-
-    void "given Backstage Pass quality equals 5 sellin equals 0 when day passes then quality equals 0 and sellin equals 0"() {
-        given:
-        def backstagePass = new BackstagePass(0, 5)
-
-        when:
-        backstagePass.dayPasses()
-
-        then:
-        backstagePass.getQuality() == 0
-        backstagePass.getSellIn() == -1
+        where:
+        sellIn | quality || newSellIn || newQuality
+        0      | 5       || -1        || 0
     }
 }
